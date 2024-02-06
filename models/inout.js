@@ -4,7 +4,11 @@ const Schema = mongoose.Schema;
 const inoutSchema = new Schema({
     itemCode: String, //hitung per itemCode berapa jumlah barang dengan nama yang sama dalam satu racks
     name: String,
-    racks: String,  
+    racks: Number,
+    bin: Number,
+    location: String,
+    rt: Number
+
 },{
     timestamps: true,
 });

@@ -28,9 +28,14 @@ export async function POST(request) {
 export async function DELETE(request) {
     try {
         const id = request.nextUrl.searchParams.get("id");
-        await connectMongoDB();
-        await Item.findByIdAndDelete(id);
-        return NextResponse.json({message: 'item deleted'},{status:200});
+        if(!id) {
+            console.log('id kosong bro');
+            return NextResponse.json({message: 'id Kosong bro'});
+        } else {
+            await connectMongoDB();
+            await Item.findByIdAndDelete(id);
+            return NextResponse.json({message: 'item deleted'},{status:200});
+        }
     } catch (error) {
         console.log(`error handling : ${error.message}`);
         return NextResponse.json({message: 'failed deleting'},{status:500});

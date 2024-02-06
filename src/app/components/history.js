@@ -2,7 +2,10 @@ import Table from './TableHistory/page';
 import Search from './SearchInput/page';
 
 const history = async () => {
-  const response = await fetch("http://localhost:3000/api/inouts");
+  const response = await fetch("http://localhost:3000/api/inouts", {
+    method: "GET",
+    cache: 'no-store',
+  });
   const history = await response.json();
   return (
       <>
@@ -16,14 +19,16 @@ const history = async () => {
                   <th className='border border-gray-200 px-12'>CODE</th>
                   <th className='border border-gray-200 px-8'>ITEM</th>
                   <th className='border border-gray-200 px-2'>RAK</th>
+                  <th className='border border-gray-200 px-2'>LOCATION</th>
+                  <th className='border border-gray-200 px-2'>BIN</th>
                   <th className='border border-gray-200 px-2'>ACTION</th>
                 </tr>
               </thead>
               <tbody className='text-center'>
-                {history.message.map(message => { 
+                {history.items && history.items.length > 0 && history.items.map(items => { 
                   return (
-                  <tr key={message._id}>
-                    <Table timestamp={message.createdAt} itemCode={message.itemCode} name={message.name} racks={message.racks}/>
+                  <tr key={items._id}>
+                    <Table timestamp={items.createdAt} itemCode={items.itemCode} name={items.name} location={items.location} bin={items.bin} racks={items.racks}/>
                   </tr>
                   )
                 })}

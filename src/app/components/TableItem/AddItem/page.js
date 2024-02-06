@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 
 
 const page = () => {
-    const [modal,setModal] = useState(false);
+    const [modal,setModal] = useState(false);   
     
     function handleChange() {
         setModal(!modal);
