@@ -8,5 +8,4 @@ Open [http://localhost:3000]
 ## not finished
 1. responsive UI
 2. CRUD data Storage
-3. Delete History
-4. feature notif message
+3. feature notif message
