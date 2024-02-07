@@ -10,9 +10,9 @@ let DB = process.env.MONGODB_URI;
 const connectMongoDB = async () => {
     try {
         await mongoose.connect(DB);
-        console.log(`konek ey`);
+        console.log(`Connected DB`);
     } catch (error) {
-        console.log(`te konek ey: ${error.message}`);
+        console.log(`Disconnected DB: ${error.message}`);
     }
 }
 connectMongoDB();

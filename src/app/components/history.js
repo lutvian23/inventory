@@ -28,7 +28,7 @@ const history = async () => {
                 {history.items && history.items.length > 0 && history.items.map(items => { 
                   return (
                   <tr key={items._id}>
-                    <Table timestamp={items.createdAt} itemCode={items.itemCode} name={items.name} location={items.location} bin={items.bin} racks={items.racks}/>
+                    <Table id={items._id} timestamp={items.createdAt} itemCode={items.itemCode} name={items.name} location={items.location} bin={items.bin} racks={items.racks}/>
                   </tr>
                   )
                 })}
